@@ -139,3 +139,4 @@ dmypy.json
 cython_debug/
 
 UI_tests/Tests/geckodriver.log
+venv

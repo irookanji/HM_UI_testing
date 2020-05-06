@@ -15,6 +15,7 @@ def test_login(browser):
     assert login_page.my_account_displayed() == True
 
 
+# 111
 # add a few goods to shopping bag, assert valid cash $
 def test_adding_to_shopping_bag():
     assert True
