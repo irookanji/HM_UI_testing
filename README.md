@@ -1,14 +1,14 @@
 # HM_UI_testing
 # UI testing web framework example
 
-I have taken one e-commerce project to test it with Python.
+I have taken one e-commerce project [HM](https://www2.hm.com/en_gb/index.html) to test it with Python.
 
 ## Installation
 
-Use the package manager [HM](https://www2.hm.com/en_gb/index.html) to install foobar.
+Use the package manager to install all the packages.
 
 ```bash
-pip install foobar
+pip freeze > requirements.txt
 ```
 
 ## Usage
