@@ -1,7 +1,6 @@
-from .BaseApp import BasePage
 from selenium.webdriver.common.by import By
 
-from .MenPage import MenPageHelper
+from .BaseApp import BasePage
 
 
 class SignInLocators:
@@ -10,16 +9,13 @@ class SignInLocators:
     MY_ACCOUNT = (By.XPATH, "//div[@class='account parbase']//a[@data-signin-state='signedin']")
 
 
-class HoverHelper(BasePage):
+class HomePageHelper(BasePage):
     def click_on_sign_in(self):
         return self.find_element(SignInLocators.SIGN_IN).click()
 
     def my_account_displayed(self):
         return self.find_element(SignInLocators.MY_ACCOUNT).is_displayed()
 
-
-class ToMenPart(BasePage):
     def choose_men(self):
-        self.find_element(SignInLocators.MEN).click()
-        return MenPageHelper(BasePage)
+        return self.find_element(SignInLocators.MEN).click()
 

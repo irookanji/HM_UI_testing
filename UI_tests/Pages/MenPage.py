@@ -12,8 +12,6 @@ class MenCatalogLocators:
 
 
 class MenPageHelper(BasePage):
-    def get_title(self):
-        return self.driver.title
 
     def click_on_jeans_catalog(self):
         return self.find_element(MenCatalogLocators.JEANS_CATALOG).click()

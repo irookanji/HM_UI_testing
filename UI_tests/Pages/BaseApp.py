@@ -1,5 +1,5 @@
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expcon
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
@@ -18,3 +18,6 @@ class BasePage:
 
     def go_to_site(self):
         return self.driver.get(self.base_url)
+
+    def get_title(self):
+        return self.driver.title
