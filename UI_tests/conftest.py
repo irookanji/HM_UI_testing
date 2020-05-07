@@ -8,8 +8,8 @@ from _pytest.runner import CallInfo
 
 @pytest.fixture(scope="session")
 def browser():
-    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
-    #driver = webdriver.Chrome(ChromeDriverManager().install())
+    # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     # driver = webdriver.Chrome(executable_path="./Drivers/chromedriver")
     driver.maximize_window()
     yield driver
