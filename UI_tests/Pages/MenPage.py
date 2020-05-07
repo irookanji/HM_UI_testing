@@ -8,6 +8,7 @@ class MenCatalogLocators:
                      "//*[@href='/en_gb/men/shop-by-product/jeans.html' and @role='menuitem']")
     SKINNY_JEANS = (By.XPATH, "//a[contains(@href,'productpage.0720504001.html')]")
     SELECT_SIZE = (By.CSS_SELECTOR, "#picker-1 > button")
+    ADD = (By.XPATH, "//span[@class='icon icon-shopping-bag-white']")
 
 
 class MenPageHelper(BasePage):
@@ -21,5 +22,9 @@ class MenPageHelper(BasePage):
         return self.find_element(MenCatalogLocators.SKINNY_JEANS).click()
 
     def select_size(self):
-        select_size = self.find_element(MenCatalogLocators.SELECT_SIZE)
-        select_size.select_by_visible_text('30')
+        select = Select(self.find_element(MenCatalogLocators.SELECT_SIZE))
+        select.select_by_visible_text('30/30')
+        return
+
+    def add_to_bag(self):
+        return self.find_element(MenCatalogLocators.ADD).click()
