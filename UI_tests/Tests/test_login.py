@@ -8,7 +8,7 @@ import time
 
 
 @retry(WebDriverException, tries=3, delay=0.3)
-def test_login(browser):
+def test_valid_login(browser):
     home_page = HomePageHelper(browser)
     home_page.go_to_site()
     home_page.click_on_sign_in()
@@ -18,7 +18,6 @@ def test_login(browser):
     login_page.click_on_the_sign_in_button()
     login_page.click_on_close_button()
     login_page.click_on_main_logo()
-    time.sleep(2)
     assert home_page.my_account_displayed()
 
 

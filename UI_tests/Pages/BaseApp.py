@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support import expected_conditions as expcon
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -21,3 +23,7 @@ class BasePage:
 
     def get_title(self):
         return self.driver.title
+
+    @staticmethod
+    def wait_for_time(seconds):
+        time.sleep(seconds)

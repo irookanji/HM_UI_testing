@@ -10,6 +10,7 @@ class LoginLocators:
     CLOSE_SIGN_IN = (By.XPATH, "//*[@data-remodal-action='close']")
     MAIN_LOGO = (By.XPATH, "//*[@class='menu__hm']")
     MY_ACCOUNT = (By.XPATH, "//div[@class='account parbase']//a[@data-signin-state='signedin']")
+    ALERT = (By.XPATH, "//span[contains(text(), 'Wrong email or password, please try again.')]")
 
 
 class LoginHelper(BasePage):
@@ -31,7 +32,13 @@ class LoginHelper(BasePage):
         return self.find_element(LoginLocators.CLOSE_SIGN_IN).click()
 
     def click_on_main_logo(self):
-        return self.find_element(LoginLocators.MAIN_LOGO).click()
+        main_logo = self.find_element(LoginLocators.MAIN_LOGO)
+        main_logo.click()
+        self.wait_for_time(2)
 
     # def my_account_displayed(self):
     #     return self.find_element(LoginLocators.MY_ACCOUNT).is_displayed()
+
+    def verify_login_failed(self):
+        return self.find_element(LoginLocators.ALERT).is_displayed()
+

@@ -5,12 +5,14 @@ from webdriver_manager.firefox import GeckoDriverManager
 import logging
 from _pytest.runner import CallInfo
 
+DEFAULT_WAIT_TIME = 10
+
 
 @pytest.fixture(scope="session")
 def browser():
     # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     driver = webdriver.Chrome(ChromeDriverManager().install())
-    # driver = webdriver.Chrome(executable_path="./Drivers/chromedriver")
+    driver.implicitly_wait(DEFAULT_WAIT_TIME)
     driver.maximize_window()
     yield driver
     driver.quit()
