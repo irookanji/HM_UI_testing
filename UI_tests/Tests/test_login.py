@@ -4,7 +4,7 @@ from selenium.common.exceptions import WebDriverException
 from UI_tests.Pages.HomePage import HomePageHelper
 from UI_tests.Pages.LoginPage import LoginHelper
 from UI_tests.Pages.MenPage import MenPageHelper
-import time
+from UI_tests.Pages.ProductPage import ProductPageHelper
 
 
 @retry(WebDriverException, tries=3, delay=0.3)
@@ -34,8 +34,9 @@ def test_adding_to_shopping_bag(browser):
     men_page = MenPageHelper(browser)
     men_page.click_on_jeans_catalog()
     men_page.choose_skinny_jeans()
-    men_page.select_size()
-    men_page.add_to_bag()
+    product_page = ProductPageHelper(browser)
+    product_page.select_size()
+    product_page.add_to_bag()
 
 
 # to decline buy good & back to main page
