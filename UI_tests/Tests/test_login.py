@@ -25,18 +25,23 @@ def test_valid_login(browser):
 def test_go_to_men_catalog(browser):
     home_page = HomePageHelper(browser)
     home_page.choose_men()
+    home_page.close_cookie()
     men_page = MenPageHelper(browser)
     assert men_page.get_title() == 'Men | H&M GB'
 
 
 # add a few goods to shopping bag, assert valid cash $
+# @retry(WebDriverException, tries=3, delay=0.3)
 def test_adding_to_shopping_bag(browser):
     men_page = MenPageHelper(browser)
     men_page.click_on_jeans_catalog()
     men_page.choose_skinny_jeans()
     product_page = ProductPageHelper(browser)
+
+    product_page.scroll_to_select_size()
     product_page.select_size()
     product_page.add_to_bag()
+    print("Everything OK!!!")
 
 
 # to decline buy good & back to main page

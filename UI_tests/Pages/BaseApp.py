@@ -2,6 +2,7 @@ import time
 
 from selenium.webdriver.support import expected_conditions as expcon
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BasePage:
@@ -27,3 +28,9 @@ class BasePage:
     @staticmethod
     def wait_for_time(seconds):
         time.sleep(seconds)
+
+    def scroll_to(self, locator):
+        element = self.driver.find_element_by_id(locator)
+
+        actions = ActionChains(self.driver)
+        actions.move_to_element(element).perform()
