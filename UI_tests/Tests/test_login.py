@@ -21,8 +21,8 @@ def test_valid_login(browser):
     assert home_page.my_account_displayed()
 
 
-# choose the jeans and the shoes
-def test_choosing_the_products(browser):
+# go to Men catalog
+def test_go_to_men_catalog(browser):
     home_page = HomePageHelper(browser)
     home_page.choose_men()
     men_page = MenPageHelper(browser)
@@ -31,7 +31,11 @@ def test_choosing_the_products(browser):
 
 # add a few goods to shopping bag, assert valid cash $
 def test_adding_to_shopping_bag(browser):
-    assert True
+    men_page = MenPageHelper(browser)
+    men_page.click_on_jeans_catalog()
+    men_page.choose_skinny_jeans()
+    men_page.select_size()
+    men_page.add_to_bag()
 
 
 # to decline buy good & back to main page

@@ -14,7 +14,6 @@ class LoginLocators:
 
 
 class LoginHelper(BasePage):
-
     def fill_the_fields(self, email="abu-company@mail.ru", password="Murderer1"):
         fill_email = self.find_element(LoginLocators.EMAIL_FIELD)
         fill_email.send_keys(email)
@@ -41,4 +40,3 @@ class LoginHelper(BasePage):
 
     def verify_login_failed(self):
         return self.find_element(LoginLocators.ALERT).is_displayed()
-
