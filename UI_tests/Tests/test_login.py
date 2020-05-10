@@ -36,8 +36,8 @@ def test_adding_to_shopping_bag(browser):
     men_page = MenPageHelper(browser)
     men_page.click_on_jeans_catalog()
     men_page.choose_skinny_jeans()
-    product_page = ProductPageHelper(browser)
 
+    product_page = ProductPageHelper(browser)
     product_page.scroll_to_select_size()
     product_page.select_size()
     product_page.add_to_bag()

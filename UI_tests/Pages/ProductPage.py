@@ -7,6 +7,7 @@ class ProductPageLocators:
     SELECT_SIZE = "picker-1"
     FIRST_ELEMENT = (By.XPATH, "(//ul[contains(@class,'picker-list')]//li)[2]")
     ADD = (By.XPATH, "//span[@class='icon icon-shopping-bag-white']")
+    SHOPPING_BAG = (By.XPATH, "//a[@href='/en_gb/cart' and contains(@class,'menu__bag')]")
 
 
 class ProductPageHelper(BasePage):
@@ -20,3 +21,6 @@ class ProductPageHelper(BasePage):
 
     def scroll_to_select_size(self):
         return self.scroll_to(ProductPageLocators.SELECT_SIZE)
+
+    def go_to_shopping_bag(self):
+        return self.find_element(ProductPageLocators.SHOPPING_BAG).click()
