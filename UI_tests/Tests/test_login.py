@@ -5,6 +5,7 @@ from UI_tests.Pages.HomePage import HomePageHelper
 from UI_tests.Pages.LoginPage import LoginHelper
 from UI_tests.Pages.MenPage import MenPageHelper
 from UI_tests.Pages.ProductPage import ProductPageHelper
+from UI_tests.Pages.ShoppingBagPage import ShoppingBagHelper
 
 
 @retry(WebDriverException, tries=3, delay=0.3)
@@ -31,7 +32,6 @@ def test_go_to_men_catalog(browser):
 
 
 # add a few goods to shopping bag, assert valid cash $
-# @retry(WebDriverException, tries=3, delay=0.3)
 def test_adding_to_shopping_bag(browser):
     men_page = MenPageHelper(browser)
     men_page.click_on_jeans_catalog()
@@ -41,7 +41,9 @@ def test_adding_to_shopping_bag(browser):
     product_page.scroll_to_select_size()
     product_page.select_size()
     product_page.add_to_bag()
-    print("Everything OK!!!")
+    product_page.go_to_shopping_bag()
+    shopping_bag = ShoppingBagHelper(browser)
+    assert shopping_bag.shopping_bag_title() == 'SHOPPING BAG'
 
 
 # to decline buy good & back to main page
