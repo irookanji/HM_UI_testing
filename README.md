@@ -45,12 +45,12 @@ python -m pytest [...]
 • Test data(feature files)  
 
 ## Tests support cross-platform browser testing
-• Windows:  
- ○ Chrome  
- ○ FireFox  
-• MacOS:  
- ○ Chrome  
- ○ FireFox  
+○ Windows:  
+ • Chrome  
+ • FireFox  
+○ MacOS:  
+ • Chrome  
+ • FireFox  
  
 P.S. Didn't have a chance to configure and test Safari browser, however Chrome and Firefox are supported on both platforms
 
