@@ -1,9 +1,9 @@
+import logging
+
 import pytest
+from _pytest.runner import CallInfo
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
-import logging
-from _pytest.runner import CallInfo
 
 DEFAULT_WAIT_TIME = 10
 

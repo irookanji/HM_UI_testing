@@ -8,7 +8,7 @@ class ShoppingBagPageLocators:
 
 
 class ShoppingBagHelper(BasePage):
-    def click_on_sign_in(self):
+    def refuse_purchase(self):
         elements = self.find_elements(ShoppingBagPageLocators.LOCATOR_CLOSE_CARD).click()
         for el in elements:
             el.click()
