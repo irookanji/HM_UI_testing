@@ -53,3 +53,7 @@ def test_adding_to_shopping_bag(browser):
 def test_decline_shopping():
     bag_page = ShoppingBagHelper(browser)
     bag_page.refuse_purchase()
+
+
+def go_to_favorites():
+    pass
