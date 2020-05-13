@@ -33,7 +33,7 @@ def test_go_to_men_catalog(browser):
 
 
 # add a few goods to shopping bag, assert valid cash $
-@retry(WebDriverException, tries=2, delay=0.3)
+# @retry(WebDriverException, tries=2, delay=0.3)
 def test_adding_to_shopping_bag(browser):
     men_page = MenPageHelper(browser)
     men_page.click_on_jeans_catalog()

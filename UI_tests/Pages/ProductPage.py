@@ -1,6 +1,8 @@
-from .BaseApp import BasePage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
+from .BaseApp import BasePage
 
 
 class ProductPageLocators:
@@ -12,8 +14,9 @@ class ProductPageLocators:
 
 class ProductPageHelper(BasePage):
     def select_size(self):
-        self.driver.find_element_by_id(ProductPageLocators.SELECT_SIZE).click()
-        self.find_element(ProductPageLocators.FIRST_ELEMENT).click()
+        self.wait_for_time(5)
+        element = self.driver.find_element_by_id(ProductPageLocators.SELECT_SIZE)
+        self.driver.execute_script("arguments[0].click();", element)
         return
 
     def add_to_bag(self):
