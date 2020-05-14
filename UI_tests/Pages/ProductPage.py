@@ -6,24 +6,22 @@ from .BaseApp import BasePage
 
 
 class ProductPageLocators:
-    SELECT_SIZE = "picker-1"
+    SELECT_SIZE = (By.XPATH,
+                   "//div[@id='picker-1']//button[contains(@class,'trigger-button')]//span[contains(text(),'Select size')]")
     FIRST_ELEMENT = (By.XPATH, "(//ul[contains(@class,'picker-list')]//li)[2]")
     ADD = (By.XPATH, "//span[@class='icon icon-shopping-bag-white']")
-    SHOPPING_BAG = (By.XPATH, "//a[@href='/en_gb/cart' and contains(@class,'menu__bag')]")
+    SHOPPING_BAG = (By.XPATH, "//a[@href='/en_gb/cart' and @class='goto-shopping-bag']")
 
 
 class ProductPageHelper(BasePage):
     def select_size(self):
         self.wait_for_time(5)
-        element = self.driver.find_element_by_id(ProductPageLocators.SELECT_SIZE)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.find_element(ProductPageLocators.SELECT_SIZE).click()
+        self.find_element(ProductPageLocators.FIRST_ELEMENT).click()
         return
 
     def add_to_bag(self):
         return self.find_element(ProductPageLocators.ADD).click()
-
-    def scroll_to_select_size(self):
-        return self.scroll_to(ProductPageLocators.SELECT_SIZE)
 
     def go_to_shopping_bag(self):
         return self.find_element(ProductPageLocators.SHOPPING_BAG).click()

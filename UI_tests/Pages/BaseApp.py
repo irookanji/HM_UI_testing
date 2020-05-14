@@ -30,7 +30,13 @@ class BasePage:
         time.sleep(seconds)
 
     def scroll_to(self, locator):
-        element = self.driver.find_element_by_id(locator)
+        element = self.find_element(locator)
 
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()
+
+    def scroll_with_diapason(self):
+        self.driver.execute_script("window.scrollTo(0, 906)")
+
+    def scroll_up(self):
+        self.driver.execute_script("window.scrollTo(0, 1)")

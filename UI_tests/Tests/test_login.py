@@ -40,13 +40,16 @@ def test_adding_to_shopping_bag(browser):
     men_page.choose_skinny_jeans()
 
     product_page = ProductPageHelper(browser)
-    product_page.scroll_to_select_size()
+    # product_page.scroll_to_select_size()
     product_page.select_size()
+    product_page.wait_for_time(2)
+    product_page.scroll_with_diapason()
     product_page.add_to_bag()
     product_page.wait_for_time(2)
+    product_page.scroll_up()
     product_page.go_to_shopping_bag()
     shopping_bag = ShoppingBagHelper(browser)
-    assert shopping_bag.shopping_bag_title() == 'SHOPPING BAG'
+    assert shopping_bag.shopping_bag_title() == 'Shopping bag'
 
 
 # to decline buy good & back to main page

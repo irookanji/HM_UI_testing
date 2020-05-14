@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 class ShoppingBagPageLocators:
     LOCATOR_CLOSE_CARD = (By.XPATH, "//*[@class='close']")
-    PAGE_TITLE = (By.XPATH, "//*[contains(text(),'SHOPPING BAG')]")
+    PAGE_TITLE = (By.XPATH, "//h1[text()='Shopping bag']")
 
 
 class ShoppingBagHelper(BasePage):
