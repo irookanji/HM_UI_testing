@@ -66,5 +66,8 @@ def go_back_to_main_page():
 
 
 def sign_out():
-    pass
+    home_page = HomePageHelper(browser)
+    home_page.sign_out()
+    login_page = LoginHelper(browser)
+    assert login_page.get_title() == 'Login | H&M Great Britain'
 
