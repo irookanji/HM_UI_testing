@@ -9,7 +9,7 @@ class ShoppingBagPageLocators:
 
 class ShoppingBagHelper(BasePage):
     def refuse_purchase(self):
-        elements = self.find_elements(ShoppingBagPageLocators.LOCATOR_CLOSE_CARD).click()
+        elements = self.find_elements(ShoppingBagPageLocators.LOCATOR_CLOSE_CARD)
         for el in elements:
             el.click()
 

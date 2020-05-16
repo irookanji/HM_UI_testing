@@ -57,5 +57,14 @@ def test_decline_shopping():
     bag_page.refuse_purchase()
 
 
-def go_to_favorites():
+# going back to main page
+def go_back_to_main_page():
+    product_page = ProductPageHelper(browser)
+    product_page.click_on_main_logo()
+    home_page = HomePageHelper(browser)
+    assert home_page.my_account_displayed()
+
+
+def sign_out():
     pass
+

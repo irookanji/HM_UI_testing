@@ -11,6 +11,7 @@ class ProductPageLocators:
     FIRST_ELEMENT = (By.XPATH, "(//ul[contains(@class,'picker-list')]//li)[2]")
     ADD = (By.XPATH, "//span[@class='icon icon-shopping-bag-white']")
     SHOPPING_BAG = (By.XPATH, "//a[@href='/en_gb/cart' and @class='goto-shopping-bag']")
+    MAIN_LOGO = (By.XPATH, "//*[@class='menu__hm']")
 
 
 class ProductPageHelper(BasePage):
@@ -25,3 +26,8 @@ class ProductPageHelper(BasePage):
 
     def go_to_shopping_bag(self):
         return self.find_element(ProductPageLocators.SHOPPING_BAG).click()
+
+    def click_on_main_logo(self):
+        main_logo = self.find_element(ProductPageLocators.MAIN_LOGO)
+        main_logo.click()
+        self.wait_for_time(2)
