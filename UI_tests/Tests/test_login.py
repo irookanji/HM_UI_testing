@@ -1,9 +1,12 @@
 import pytest
+from retry import retry
+from selenium.common.exceptions import WebDriverException
+
 from UI_tests.Pages.HomePage import HomePageHelper
 from UI_tests.Pages.LoginPage import LoginHelper
-from UI_tests.conftest import browser
 
 
+@retry(WebDriverException, tries=2, delay=0.3)
 @pytest.mark.parametrize("login, passwd, rez",
                          [
                              ("wrongLogin", "Murderer1", "Sign In"),
