@@ -9,7 +9,7 @@ from UI_tests.Pages.ShoppingBagPage import ShoppingBagHelper
 from UI_tests.conftest import browser
 
 
-@retry(WebDriverException, tries=3, delay=0.3)
+@retry(WebDriverException, tries=2, delay=0.3)
 def test_valid_login(browser):
     home_page = HomePageHelper(browser)
     home_page.go_to_site()
