@@ -60,14 +60,14 @@ def test_decline_shopping(browser):
 
 
 # going back to main page
-def go_back_to_main_page(browser):
+def test_go_back_to_main_page(browser):
     product_page = ProductPageHelper(browser)
     product_page.click_on_main_logo()
     home_page = HomePageHelper(browser)
     assert home_page.my_account_displayed()
 
 
-def sign_out(browser):
+def test_sign_out(browser):
     home_page = HomePageHelper(browser)
     home_page.sign_out()
     login_page = LoginHelper(browser)
