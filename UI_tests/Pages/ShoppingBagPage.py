@@ -15,3 +15,9 @@ class ShoppingBagHelper(BasePage):
 
     def shopping_bag_title(self):
         return self.find_element(ShoppingBagPageLocators.PAGE_TITLE).text
+
+    def assertion_products(self):
+        return len(self.find_elements(ShoppingBagPageLocators.LOCATOR_CLOSE_CARD)) > 0
+
+    def assertion_bag_url(self):
+        return self.driver.current_url

@@ -54,6 +54,8 @@ def test_adding_to_shopping_bag(browser):
 def test_decline_shopping():
     bag_page = ShoppingBagHelper(browser)
     bag_page.wait_for_time(5)
+    assert bag_page.assertion_products() == True
+    assert bag_page.assertion_bag_url() == "https://www2.hm.com/en_gb/cart"
     bag_page.refuse_purchase()
 
 
