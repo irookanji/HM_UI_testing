@@ -1,5 +1,6 @@
 import time
 
+from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as expcon
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
@@ -40,3 +41,8 @@ class BasePage:
 
     def scroll_up(self):
         self.driver.execute_script("window.scrollTo(0, 1)")
+
+    def options(self):
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('start-maximized')
+        return chrome_options
