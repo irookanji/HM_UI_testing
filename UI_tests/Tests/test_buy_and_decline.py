@@ -51,25 +51,24 @@ def test_adding_to_shopping_bag(browser):
 
 
 # to decline buy good & back to main page
-def test_decline_shopping():
-    bag_page = ShoppingBagHelper(browser)
-    bag_page.wait_for_time(5)
-    assert bag_page.assertion_products() == True
-    assert bag_page.assertion_bag_url() == "https://www2.hm.com/en_gb/cart"
-    bag_page.refuse_purchase()
+def test_decline_shopping(browser):
+    shopping_bag = ShoppingBagHelper(browser)
+    shopping_bag.wait_for_time(3)
+    assert shopping_bag.assertion_products() == True
+    assert shopping_bag.assertion_bag_url() == "https://www2.hm.com/en_gb/cart"
+    shopping_bag.refuse_purchase()
 
 
 # going back to main page
-def go_back_to_main_page():
+def go_back_to_main_page(browser):
     product_page = ProductPageHelper(browser)
     product_page.click_on_main_logo()
     home_page = HomePageHelper(browser)
     assert home_page.my_account_displayed()
 
 
-def sign_out():
+def sign_out(browser):
     home_page = HomePageHelper(browser)
     home_page.sign_out()
     login_page = LoginHelper(browser)
     assert login_page.get_title() == 'Login | H&M Great Britain'
-
