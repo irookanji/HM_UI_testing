@@ -9,7 +9,7 @@ from UI_tests.Pages.LoginPage import LoginHelper
 @retry(WebDriverException, tries=2, delay=0.3)
 @pytest.mark.parametrize("login, passwd, rez",
                          [
-                             ("wrongLogin", "Murderer1", "Sign In"),
+                             ("wrongLogin@mail.com", "Murderer1", "Sign In"),
                              ("abu-company@mail.ru", "wrongPass", "Sign In"),
                              ("abu-company@mail.ru", "Murderer1", "My Account")
                          ])
@@ -23,3 +23,7 @@ def test_ui_login(browser, login, passwd, rez):
     login_page.click_on_close_button()
     login_page.click_on_main_logo()
     assert home_page.my_account_displayed()
+
+
+def test_invalid_login():
+    pass

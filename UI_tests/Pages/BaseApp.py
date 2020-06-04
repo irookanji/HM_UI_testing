@@ -9,6 +9,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 class BasePage:
 
     def __init__(self, driver):
+        # option = self.options()
+        # self.driver = webdriver.Chrome(chrome_options=option)
         self.driver = driver
         self.base_url = "https://www2.hm.com/en_gb/index.html"
 
