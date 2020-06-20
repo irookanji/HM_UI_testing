@@ -27,3 +27,7 @@ def test_ui_login(browser, login, passwd, rez):
 
 def test_invalid_login():
     pass
+
+
+def test_logout():
+    pass
