@@ -16,6 +16,7 @@ def browser():
     driver.implicitly_wait(DEFAULT_WAIT_TIME)
     driver.maximize_window()
     yield driver
+    driver.save_screenshot('screenshot.png')
     driver.quit()
     # Teardown
     print("\n\tI am tearing down this browser")
