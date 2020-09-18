@@ -67,6 +67,7 @@ def test_go_back_to_main_page(browser):
     assert home_page.my_account_displayed()
 
 
+# signing out the shopping operation
 def test_sign_out(browser):
     home_page = HomePageHelper(browser)
     home_page.sign_out()
