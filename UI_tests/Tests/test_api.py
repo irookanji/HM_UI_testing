@@ -25,6 +25,7 @@ def test_yandex_translate(api):
         f.write(json.dumps(translate["text"], ensure_ascii=False))
 
 
+# optional method
 @pytest.mark.skip
 @pytest.mark.parametrize("animal_facts", load)
 def test_yandex_translate_multilang(api, animal_facts):
