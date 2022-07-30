@@ -9,9 +9,9 @@ from UI_tests.Pages.LoginPage import LoginHelper
 @retry(WebDriverException, tries=2, delay=0.3)
 @pytest.mark.parametrize("login, passwd, rez",
                          [
-                             ("wrongLogin@mail.com", "Murderer1", "Sign In"),
+                             ("wrongLogin@mail.com", "M1234567", "Sign In"),
                              ("abu-company@mail.ru", "wrongPass", "Sign In"),
-                             ("abu-company@mail.ru", "Murderer1", "My Account")
+                             ("abu-company@mail.ru", "M1234567", "My Account")
                          ])
 def test_ui_login(browser, login, passwd, rez):
     home_page = HomePageHelper(browser)
