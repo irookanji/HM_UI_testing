@@ -10,8 +10,8 @@ from UI_tests.Pages.LoginPage import LoginHelper
 @pytest.mark.parametrize("login, passwd, rez",
                          [
                              ("wrongLogin@mail.com", "M1234567", "Sign In"),
-                             ("abu-company@mail.ru", "wrongPass", "Sign In"),
-                             ("abu-company@mail.ru", "M1234567", "My Account")
+                             ("test@mail.ru", "wrongPass", "Sign In"),
+                             ("test@mail.ru", "M1234567", "My Account")
                          ])
 def test_ui_login(browser, login, passwd, rez):
     home_page = HomePageHelper(browser)
